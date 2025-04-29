@@ -339,3 +339,16 @@ footer a {
     font-weight: bold;
     color: var(--accent-color);
 }
+
+.mooc-anssi {
+    margin-top: 2rem;
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+}
+.mooc-anssi img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
