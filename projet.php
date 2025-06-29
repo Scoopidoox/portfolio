@@ -1,9 +1,9 @@
 <?php
 // Connexion à la base de données
-$host = 'localhost';
-$dbname = 'portfolio';
+$host = 'mysql.railway.internal';
+$dbname = 'railway';
 $user = 'root';
-$password = '';
+$password = 'hwztiwMYuYYzxNgChLabQrFoDunjzotm';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
