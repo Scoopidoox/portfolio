@@ -1,0 +1,602 @@
+:root {
+  --main-color: #121212;
+  --accent-color: #ffd000;
+  --text-color: #ffffff;
+  --bg-color: #1e1e1e;
+  --card-bg: #2a2a2a;
+}
+
+/* === RESPONSIVE === */
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .highlight {
+    padding: 1.5rem;
+  }
+
+  .card,
+  .articles .news {
+    padding: 1.2rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &:not(:has(img)) h1 {
+    margin-top: 1.8rem;
+  }
+
+  & img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    object-fit: cover;
+
+    &:hover {
+      animation: rotate 0.5s ease-in-out;
+    }
+  }
+
+  & nav {
+    margin-top: 2rem;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === HEADER === */
+header {
+  background-color: var(--main-color);
+  padding: 1rem 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+nav a {
+  display: inline-block; /* Nécessaire pour que transform fonctionne bien */
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+main section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+}
+
+/* === GRID STYLES === */
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.list a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* === HIGHLIGHT === */
+
+.highlight {
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* === ARTICLES === */
+
+.articles .news {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.articles .news:hover {
+  background-color: #3a3a3a;
+}
+
+.articles a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.articles a:hover {
+  color: #fff;
+}
+
+/* === LISTES ET ITEMS === */
+
+ul.list {
+  list-style: square inside;
+  margin-left: 1rem;
+}
+
+.item {
+  margin-top: 1rem;
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+  background-color: #3a3a3a;
+}
+
+.item h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.item span {
+  font-size: 0.9rem;
+  color: #aaa;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* === BUTTONS === */
+
+.btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #947900;
+}
+
+.social-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.social-buttons img {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn.linkedin {
+  background-color: var(--accent-color);
+  color: #000000;
+}
+
+.btn.linkedin:hover {
+  background-color: #947900;
+  & img {
+    transform: scale(1.1);
+  }
+}
+
+.btn.github {
+  background-color: #969ca1;
+  color: #fff;
+}
+
+.btn.github:hover {
+  background-color: #5d6166;
+  & img {
+    transform: scale(1.1);
+  }
+}
+
+/* === FOOTER === */
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--main-color);
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* === ANIMATIONS === */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === DOCUMENTATION SECTION === */
+.documentation {
+  text-align: center;
+  margin-top: 3rem;
+  animation: fadeInUp 1s ease forwards;
+  min-height: 65vh;
+  padding: 1rem;
+}
+
+.documentation h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Container pour les cartes en ligne */
+.doc-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.doc-download-card {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  width: 280px;
+  height: 80px;
+}
+
+.doc-download-card img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.doc-download-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.doc-download-card p {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 0;
+  text-align: left;
+}
+
+/* Styles pour les autres download-cards (compétences) */
+.download-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 1rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none !important;
+}
+
+.download-card a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.download-card img {
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.download-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1rem;
+}
+
+.card-icon2 {
+  width: 80px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.card-icon3 {
+  width: 120px;
+  height: 72px;
+  margin-bottom: 1rem;
+}
+
+.download-card p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* === MOOC ANSSI === */
+.mooc-anssi {
+  margin-top: 2rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+  min-height: 65vh;
+}
+.mooc-anssi img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* === CAROUSEL === */
+.carousel-container {
+  max-width: 800px;
+  margin-top: 2rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  overflow: hidden;
+  animation: fadeInUp 1s ease forwards;
+  min-height: 55vh;
+  text-align: center;
+}
+
+.carousel-images {
+  display: flex;
+  margin-top: 2rem;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 62%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+:root {
+  --menu-link-active-color-1: #0078d7;
+  --menu-link-active-color-2: #17a2b8;
+  --menu-link-active-color-3: #28a745;
+  --menu-link-active-color-4: #ffc107;
+  --menu-link-active-color-5: #dc3545;
+  --menu-link-active-color-6: #6f42c1;
+  --grey-color: #7f8c8d;
+}
+
+/* Reset */
+.menu-hover-fill ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-hover-fill li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* Barre verticale à gauche */
+.menu-hover-fill li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  width: 0.25rem;
+  height: 100%;
+  background: var(--menu-link-active-color-1);
+  transition: left 0.6s;
+  opacity: 0.7;
+}
+.menu-hover-fill li:nth-child(4)::before {
+  background: var(--menu-link-active-color-1);
+}
+.menu-hover-fill li:nth-child(5)::before {
+  background: var(--menu-link-active-color-2);
+}
+.menu-hover-fill li:nth-child(6)::before {
+  background: var(--menu-link-active-color-3);
+}
+.menu-hover-fill li:nth-child(1)::before {
+  background: var(--menu-link-active-color-4);
+}
+.menu-hover-fill li:nth-child(2)::before {
+  background: var(--menu-link-active-color-5);
+}
+.menu-hover-fill li:nth-child(3)::before {
+  background: var(--menu-link-active-color-6);
+}
+
+.competence1 h2 {
+  border-color: var(--menu-link-active-color-4);
+}
+.competence2 h2 {
+  border-color: var(--menu-link-active-color-5);
+}
+.competence3 h2 {
+  border-color: var(--menu-link-active-color-6);
+}
+.competence4 h2 {
+  border-color: var(--menu-link-active-color-1);
+}
+.competence5 h2 {
+  border-color: var(--menu-link-active-color-2);
+}
+.competence6 h2 {
+  border-color: var(--menu-link-active-color-3);
+}
+
+/* Lien */
+.menu-hover-fill a {
+  color: var(--grey-color);
+  position: relative;
+  padding-left: 0.5rem;
+  transition: color 0.3s;
+  font-weight: 600;
+  background: none;
+}
+
+/* Effet survol */
+.menu-hover-fill li:hover::before {
+  left: calc(100% + 1rem);
+}
+.menu-hover-fill li:hover a,
+.menu-hover-fill li:focus-within a {
+  color: inherit;
+  background: linear-gradient(90deg, currentColor 0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Layout principal : nav à gauche, contenu centré */
+.competence-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Mets le même padding-top que le header (ex: 2rem) */
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+.comp {
+  min-width: 270px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20.25rem; /* Augmente la valeur pour descendre la nav */
+  align-self: flex-start;
+  height: fit-content;
+  z-index: 10; /* Assure que la nav reste au-dessus du contenu */
+}
+
+.container {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Colonne verticale pour la nav */
+.menu-hover-fill ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
