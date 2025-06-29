@@ -5,7 +5,7 @@ FROM mysql:8.0
 ENV MYSQL_ROOT_PASSWORD=hwztiwMYuYYzxNgChLabQrFoDunjzotm
 ENV MYSQL_DATABASE=railway
 ENV MYSQL_USER=root
-ENV MYSQL_PASSWORD=mysql.railway.internal
+ENV MYSQL_PASSWORD=hwztiwMYuYYzxNgChLabQrFoDunjzotm
 
 # Expose le port MySQL
-EXPOSE 80
+EXPOSE 3306
