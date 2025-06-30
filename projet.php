@@ -2,11 +2,11 @@
 // Récupère l'URL de connexion depuis les secrets Fly.io
 $url = parse_url(getenv("DATABASE_URL"));
 
-$host = $url["host"]; // shinkansen.proxy.rlwy.net
-$port = $url["port"]; // 41356
-$user = $url["user"]; // root
-$pass = $url["pass"]; // hwztiwMYuYYzxNgChLabQrFoDunjzotm
-$db   = ltrim($url["path"], "/"); // railway
+$host = $url["shinkansen.proxy.rlwy.net"];
+$port = $url["41356"];
+$user = $url["root"];
+$pass = $url["hwztiwMYuYYzxNgChLabQrFoDunjzotm"];
+$db   = ltrim($url["railway"], "/");
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
