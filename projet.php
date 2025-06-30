@@ -1,15 +1,19 @@
 <?php
-// Connexion à la base de données
-$host = 'mysql.railway.internal';
-$dbname = 'railway';
-$user = 'root';
-$password = 'hwztiwMYuYYzxNgChLabQrFoDunjzotm';
+// Récupère l'URL de connexion depuis les secrets Fly.io
+$url = parse_url(getenv("DATABASE_URL"));
+
+$host = $url["host"]; // shinkansen.proxy.rlwy.net
+$port = $url["port"]; // 41356
+$user = $url["user"]; // root
+$pass = $url["pass"]; // hwztiwMYuYYzxNgChLabQrFoDunjzotm
+$db   = ltrim($url["path"], "/"); // railway
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "✅ Connexion réussie, MASTER-SAMA!";
 } catch (PDOException $e) {
-    die("Erreur de connexion : " . $e->getMessage());
+    die("❌ Erreur de connexion : " . $e->getMessage());
 }
 
 // Vérifie que l'ID est fourni dans l'URL

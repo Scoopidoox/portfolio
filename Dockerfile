@@ -1,11 +1,7 @@
-# Utilise l'image officielle MySQL
-FROM mysql:8.0
+FROM php:8.2-apache
 
-# Définit les variables d'environnement (à personnaliser)
-ENV MYSQL_ROOT_PASSWORD=hwztiwMYuYYzxNgChLabQrFoDunjzotm
-ENV MYSQL_DATABASE=railway
-ENV MYSQL_USER=root
-ENV MYSQL_PASSWORD=hwztiwMYuYYzxNgChLabQrFoDunjzotm
+RUN a2enmod rewrite
 
-# Expose le port MySQL
-EXPOSE 3306
+COPY . /var/www/html/
+
+EXPOSE 80
