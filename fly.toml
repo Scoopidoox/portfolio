@@ -1,29 +1,17 @@
-app = "portfolio-hugo-pidoux-4vpeqg-wandering-moon-7144"
-primary_region = "cdg"
+app = 'portefolio'
+primary_region = 'cdg'
 
 [build]
-  image = "php:8.2-apache"
-
-[env]
-  DATABASE_URL = "mysql://root:hwztiwMYuYYzxNgChLabQrFoDunjzotm@shinkansen.proxy.rlwy.net:41356/railway"
 
 [http_service]
   internal_port = 80
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
-
-[[services.ports]]
-  handlers = ["http"]
-  port = 80
-
-[[services.ports]]
-  handlers = ["tls", "http"]
-  port = 443
+  processes = ['app']
 
 [[vm]]
-  memory = "1gb"
-  cpu_kind = "shared"
+  memory = '1gb'
+  cpu_kind = 'shared'
   cpus = 1
