@@ -1,12 +1,12 @@
 <?php
-// Récupère l'URL de connexion depuis les secrets Fly.io
+// Récupère l'URL de connexion depuis les variables d’environnement
 $url = parse_url(getenv("DATABASE_URL"));
 
-$host = $url["shinkansen.proxy.rlwy.net"];
-$port = $url["41356"];
-$user = $url["root"];
-$pass = $url["hwztiwMYuYYzxNgChLabQrFoDunjzotm"];
-$db   = ltrim($url["railway"], "/");
+$host = $url["host"] ?? 'shinkansen.proxy.rlwy.net';
+$port = $url["port"] ?? 41356;
+$user = $url["user"] ?? 'root';
+$pass = $url["pass"] ?? 'hwztiwMYuYYzxNgChLabQrFoDunjzotm';
+$db   = isset($url["path"]) ? ltrim($url["path"], "/") : 'railway';
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
@@ -49,40 +49,39 @@ if (!$projet) {
 <body>
 <?php include './header.html'; ?>
 
-  <main class="container">
-    <h2><?= htmlspecialchars($projet['nom_tp']) ?></h2>
+<main class="container">
+  <h2><?= htmlspecialchars($projet['nom_tp']) ?></h2>
 
-    <div class="card">
-      <h3>Contexte</h3>
-      <p><?= nl2br(htmlspecialchars($projet['contexte'])) ?></p>
-      <br />
+  <div class="card">
+    <h3>Contexte</h3>
+    <p><?= nl2br(htmlspecialchars($projet['contexte'])) ?></p>
+    <br />
 
-      <h3>Visuel</h3>
-      <?php if (!empty($projet['image'])): ?>
-        <img src="public/images/<?= htmlspecialchars($projet['image']) ?>" alt="Visuel du projet" style="max-width:100%;height:auto;">
-      <?php else: ?>
-        <p>Aucun visuel disponible pour ce projet.</p>
-      <?php endif; ?>
-      <br />
+    <h3>Visuel</h3>
+    <?php if (!empty($projet['image'])): ?>
+      <img src="public/images/<?= htmlspecialchars($projet['image']) ?>" alt="Visuel du projet" style="max-width:100%;height:auto;">
+    <?php else: ?>
+      <p>Aucun visuel disponible pour ce projet.</p>
+    <?php endif; ?>
+    <br />
 
+    <h3>Environnement</h3>
+    <p><?= nl2br(htmlspecialchars($projet['environnement'])) ?></p>
+    <br />
 
-      <h3>Environnement</h3>
-      <p><?= nl2br(htmlspecialchars($projet['environnement'])) ?></p>
-      <br />
+    <h3>Compétence principale mobilisée</h3>
+    <p><?= htmlspecialchars($projet['competence_principale']) ?></p>
+    <br />
 
-      <h3>Compétence principale mobilisée</h3>
-      <p><?= htmlspecialchars($projet['competence_principale']) ?></p>
-      <br />
+    <h3>Conclusion</h3>
+    <p><?= nl2br(htmlspecialchars($projet['conclusion'])) ?></p>
 
-      <h3>Conclusion</h3>
-      <p><?= nl2br(htmlspecialchars($projet['conclusion'])) ?></p>
+    <?php if (!empty($projet['lien_projet'])): ?>
+      <a href="<?= htmlspecialchars($projet['lien_projet']) ?>" class="btn" target="_blank">Voir le projet</a>
+    <?php endif; ?>
+  </div>
+</main>
 
-      <?php if (!empty($projet['lien_projet'])): ?>
-        <a href="<?= htmlspecialchars($projet['lien_projet']) ?>" class="btn" target="_blank">Voir le projet</a>
-      <?php endif; ?>
-    </div>
-  </main>
-
-  <?php include './footer.html'; ?>
+<?php include './footer.html'; ?>
 </body>
 </html>
