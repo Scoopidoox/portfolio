@@ -1,6 +1,6 @@
-FROM php:8.2-apache
+FROM php:8.1-apache
 
-RUN a2enmod rewrite
+RUN docker-php-ext-install mysqli pdo_mysql
 
 COPY . /var/www/html/
 

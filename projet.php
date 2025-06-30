@@ -1,19 +1,15 @@
 <?php
-// Récupère l'URL de connexion depuis les variables d’environnement
-$url = parse_url(getenv("DATABASE_URL"));
+// Connexion à la base de données Railway avec mysqli
+$connexion = mysqli_connect(
+    'shinkansen.proxy.rlwy.net',
+    'root',
+    'hwztiwMYuYYzxNgChLabQrFoDunjzotm',
+    'railway',
+    41356
+);
 
-$host = $url["host"] ?? 'shinkansen.proxy.rlwy.net';
-$port = $url["port"] ?? 41356;
-$user = $url["user"] ?? 'root';
-$pass = $url["pass"] ?? 'hwztiwMYuYYzxNgChLabQrFoDunjzotm';
-$db   = isset($url["path"]) ? ltrim($url["path"], "/") : 'railway';
-
-try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "✅ Connexion réussie, MASTER-SAMA!";
-} catch (PDOException $e) {
-    die("❌ Erreur de connexion : " . $e->getMessage());
+if (!$connexion) {
+    die("❌ Erreur de connexion : " . mysqli_connect_error());
 }
 
 // Vérifie que l'ID est fourni dans l'URL
@@ -23,22 +19,28 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id_tp = (int)$_GET['id'];
 
-// Requête pour récupérer le projet spécifique
+// Préparation de la requête
 $sql = "SELECT tp.nom_tp, projet_detail.contexte, projet_detail.environnement,
                projet_detail.competence_principale, projet_detail.conclusion,
                projet_detail.lien_projet, projet_detail.image
         FROM projet_detail
         JOIN tp ON projet_detail.id_tp = tp.id_tp
         WHERE tp.id_tp = ?";
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$id_tp]);
-$projet = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = mysqli_prepare($connexion, $sql);
+if (!$stmt) {
+    die("❌ Erreur de préparation de la requête : " . mysqli_error($connexion));
+}
+
+mysqli_stmt_bind_param($stmt, "i", $id_tp);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$projet = mysqli_fetch_assoc($result);
 
 if (!$projet) {
     die("Projet introuvable.");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
