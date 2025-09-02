@@ -1,9 +1,9 @@
 <?php
 // Connexion à la base de données
-$host = 'mysql.railway.internal';
-$dbname = 'railway';
+$host = '127.0.0.1';
+$dbname = 'portfolio';
 $user = 'root';
-$password = 'hwztiwMYuYYzxNgChLabQrFoDunjzotm';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
@@ -19,7 +19,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $id_tp = (int)$_GET['id'];
 
-// Requête pour récupérer le projet spécifique
+// Requête pour récupérer le projet spécifique avec son titre (nom_tp)
 $sql = "SELECT tp.nom_tp, projet_detail.contexte, projet_detail.environnement,
                projet_detail.competence_principale, projet_detail.conclusion,
                projet_detail.lien_projet, projet_detail.image
@@ -61,7 +61,6 @@ if (!$projet) {
       <?php endif; ?>
       <br />
 
-
       <h3>Environnement</h3>
       <p><?= nl2br(htmlspecialchars($projet['environnement'])) ?></p>
       <br />
@@ -76,6 +75,10 @@ if (!$projet) {
       <?php if (!empty($projet['lien_projet'])): ?>
         <a href="<?= htmlspecialchars($projet['lien_projet']) ?>" class="btn" target="_blank">Voir le projet</a>
       <?php endif; ?>
+
+       <!-- Bouton retour -->
+      <br /><br />
+      <button onclick="window.history.back()" class="btn">Retour</button>
     </div>
   </main>
 

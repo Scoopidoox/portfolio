@@ -600,3 +600,11 @@ footer a {
   flex-direction: column;
   gap: 1.5rem;
 }
+
+.card button {
+  float: inline-end;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: var(--accent-color);
+}
