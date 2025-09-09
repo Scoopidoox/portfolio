@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./main.css" />
     </head>
     <body>
-        <?php include './header.html'; ?>
+        <?php include './header.php'; ?>
         <main class="container">
             <section>
                 <div class="carousel-container">

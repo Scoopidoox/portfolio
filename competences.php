@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<?php include './header.html'; ?>
+<?php include './header.php'; ?>
 
 <div class="competence-layout">
   <!-- Navigation latérale pour les compétences -->

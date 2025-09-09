@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./main.css" />
     </head>
     <body>
-        <?php include './header.html'; ?>
+        <?php include './header.php'; ?>
 
         <!-- Qui je suis -->
         <section id="moi">
@@ -150,7 +150,7 @@
                 <ul class="list">
                     <li><strong>Langues :</strong> Anglais (B2) / Allemand (A1) / Mandarin (A1)</li>
                     <li><strong>Qualités :</strong> Autonome / Curieux / Sociable / Rigoureux</li>
-                    <li><strong>Loisirs :</strong> Informatique / Jeux vidéo / Cuisine / Cinéma</li>
+                    <li><strong>Loisirs :</strong> Montage vidéo / Musique / Gaming / Cuisine / Cinéma</li>
                 </ul>
             </section>
         </main>

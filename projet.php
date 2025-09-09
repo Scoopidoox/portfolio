@@ -43,7 +43,7 @@ if (!$projet) {
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<?php include './header.html'; ?>
+<?php include './header.php'; ?>
 
   <main class="container">
     <h2><?= htmlspecialchars($projet['nom_tp']) ?></h2>

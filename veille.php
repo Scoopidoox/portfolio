@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./main.css" />
     </head>
     <body>
-        <?php include './header.html'; ?>
+        <?php include './header.php'; ?>
         <section id="technologique">
             <div class="container">
                 <h2>Veille technologique - Outils et Environnements de Développement</h2>
@@ -77,17 +77,6 @@
                 <h2>Actus</h2>
 
                 <?php
-                // dynamisation des articles de veille
-                // connexion à la base de données
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "portfolio";
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // vérifier la connexion
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
                 // requête pour récupérer les articles
                 $sql = "SELECT titre_actu, auteur_actu, resume_actu, date_actu, lien_actu, pdf_actu FROM actu ORDER BY date_actu DESC";
                 $result = $conn->query($sql);

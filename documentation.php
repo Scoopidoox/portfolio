@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./main.css" />
     </head>
     <body>
-        <?php include './header.html'; ?>
+        <?php include './header.php'; ?>
         <section class="documentation">
             <h2>Documentation</h2>
 

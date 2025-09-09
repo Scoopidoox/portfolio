@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./main.css" />
     </head>
     <body>
-        <?php include './header.html'; ?>
+        <?php include './header.php'; ?>
         <div class="mooc-anssi">
             <h2>MOOC ANSSI</h2>
             <p>
