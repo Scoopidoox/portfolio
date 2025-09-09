@@ -74,75 +74,41 @@
             </section>
 
             <section class="articles">
-                <h2>Actus récentes</h2>
+                <h2>Actus</h2>
 
-                <article class="news">
-                    <h3>GitHub Copilot gratuit intégré à VS Code</h3>
-                    <p><strong>Par :</strong> Burke HOLLAND – <strong>2024/12/18</strong></p>
-                    <p>
-                        Copilot Chat intégré à VS Code gratuitement : boost de productivité assuré pour les
-                        développeurs.
-                    </p>
-                    <a
-                        href="https://code.visualstudio.com/blogs/2024/12/18/free-github-copilot#_the-ai-code-editor-for-everyone"
-                        target="_blank"
-                    >
-                        Voir l'article
-                    </a>
-                    <br />
-                    <a href="./public/news/news_copilot.pdf" target="_blank">Télécharger le PDF</a>
-                </article>
+                <?php
+                // dynamisation des articles de veille
+                // connexion à la base de données
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "portfolio";
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // vérifier la connexion
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                // requête pour récupérer les articles
+                $sql = "SELECT titre_actu, auteur_actu, resume_actu, date_actu, lien_actu, pdf_actu FROM actu ORDER BY date_actu DESC";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
 
-                <article class="news">
-                    <h3>Les tendances clés de Docker pour 2025</h3>
-                    <p><strong>Par :</strong> Rikki ENDSLEY – <strong>2025/01/16</strong></p>
-                    <p>
-                        Mise en avant de l'intégration de l'IA, le renforcement de la sécurité et l'amélioration des
-                        outils pour les développeurs.
-                    </p>
-                    <a
-                        href="https://www.docker.com/resources/2025-01-13-kickstart-2025-ai-security-empowered-developer-teams/"
-                        target="_blank"
-                    >
-                        Voir l'article
-                    </a>
-                    <br />
-                    <a href="./public/news/news_docker.pdf" target="_blank">Télécharger le PDF</a>
-                </article>
-
-                <article class="news">
-                    <h3>Cinq tendances qui façonneront le développement logiciel en 2025</h3>
-                    <p><strong>Par :</strong> Michel ISNARD – <strong>2025/03/03</strong></p>
-                    <p>
-                        Cet article explore les principales tendances qui influenceront le développement logiciel en
-                        2025, telles que l'intégration de l'IA, l'automatisation accrue des processus de développement,
-                        et l'importance croissante des plateformes centralisées pour améliorer l'efficacité et la
-                        sécurité.
-                    </p>
-                    <a
-                        href="https://www.journaldunet.com/developpeur/1539615-cinq-tendances-qui-faconneront-le-developpement-logiciel-en-2025/"
-                        target="_blank"
-                    >
-                        Voir l'article
-                    </a>
-                    <br />
-                    <a href="./public/news/news_tendances_dev_2025.pdf" target="_blank">Télécharger le PDF</a>
-                </article>
-
-                <article class="news">
-                    <h3>Étude : les nouvelles tendances de l’écosystème des développeurs en 2025</h3>
-                    <p><strong>Par :</strong> Nicolas LECOINTRE – <strong>2025/02/20</strong></p>
-                    <p>
-                        Cette étude de JetBrains met en lumière l'évolution de l'écosystème des développeurs en 2025,
-                        avec une omniprésence de l'IA, une transformation des rôles des développeurs, et une adoption
-                        croissante de nouveaux outils et langages pour s'adapter aux défis technologiques actuels.
-                    </p>
-                    <a href="https://lesjoiesducode.fr/etude-developpeurs-2025-enquete-ecosysteme-devs" target="_blank">
-                        Voir l'article
-                    </a>
-                    <br />
-                    <a href="./public/news/news_ecosysteme_devs_2025.pdf" target="_blank">Télécharger le PDF</a>
-                </article>
+                    // sortie des données de chaque ligne
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<article class="news">';
+                        echo '<h3>' . htmlspecialchars($row["titre_actu"]) . '</h3>';
+                        echo '<p><strong>Par :</strong> ' . htmlspecialchars($row["auteur_actu"]) . ' – <strong>' . htmlspecialchars($row["date_actu"]) . '</strong></p>';
+                        echo '<p>' . htmlspecialchars($row["resume_actu"]) . '</p>';
+                        echo '<a href="' . htmlspecialchars($row["lien_actu"]) . '" target="_blank">Voir l\'article</a><br />';
+                        if (!empty($row["pdf_actu"])) {
+                            echo '<a href="' . htmlspecialchars($row["pdf_actu"]) . '" target="_blank">Télécharger le PDF</a>';
+                        }
+                        echo '</article>';
+                    }
+                } else {
+                    echo "0 results";
+                }
+                ?>
             </section>
         </main>
         <?php include './footer.html'; ?>
