@@ -35,11 +35,23 @@
             <!-- Pro -->
             <section id="intro">
                 <h2>Mon CV</h2>
-                <a href="./public/cv-hugo.pdf" class="btn" download>Télécharger le CV (PDF)</a>
+                <a href="./public/doc/cv-hugo.pdf" class="btn" download>Télécharger le CV (PDF)</a>
             </section>
 
             <section id="experience">
                 <h2>Expérience Professionnelle</h2>
+                <div class="item">
+                    <h3>Équipier Cuisine - Rest'O'Rock</h3>
+                    <span>Juin 2025 - Poste encore occupé</span>
+                    <span>Rouen</span>
+                    <p>
+                        Intégration récente au sein de cette nouvelle équipe, où j'ai rapidement trouvé mes marques. Ce poste
+                        m'offre l'opportunité de développer davantage mes compétences en cuisine, tout en renforçant mes
+                        capacités relationnelles grâce au contact avec la clientèle. Ce poste me permet également de
+                        concilier travail et études, en m'adaptant aux horaires proposés, en espérant obtenir une alternance dans
+                        le courant de l'année à venir.
+                    </p>
+                </div>
                 <div class="item">
                     <h3>Stagiaire - Les Torréfacteurs Normands</h3>
                     <span>Mai 2025 - Juin 2025</span>
@@ -52,7 +64,7 @@
                 </div>
                 <div class="item">
                     <h3>Équipier Polyvalent - Mc Donald's France</h3>
-                    <span>Juin 2023 - Poste toujours occupé</span>
+                    <span>Juin 2023 - Juin 2025</span>
                     <span>Bois-Guillaume / Rouen</span>
                     <p>
                         Depuis plus d'un an au sein de la franchise, j'ai eu l'opportunité de m'intégrer pleinement et
@@ -89,9 +101,9 @@
             <section id="education">
                 <h2>Formation</h2>
                 <div class="item">
-                    <h3>BTS SIO</h3>
-                    <span>2024 - 2025 | La Châtaigneraie, Le Mesnil-Esnard</span>
-                    <p>Première année en option SLAM (Solutions Logicielles Applications Métier).</p>
+                    <h3>BTS SIO (Services Informatiques aux Organisations)</h3>
+                    <span>2024 - 2026 | La Châtaigneraie, Le Mesnil-Esnard</span>
+                    <p>Première et deuxième année en option SLAM (Solutions Logicielles Applications Métier).</p>
                 </div>
                 <div class="item">
                     <h3>Licence de psychologie</h3>
@@ -119,10 +131,11 @@
             <section id="skills">
                 <h2>Compétences Techniques</h2>
                 <ul class="list">
-                    <li><strong>Web :</strong> php5 / CSS3 / JavaScript / PHP</li>
+                    <li><strong>Web :</strong> HTML5 / CSS3 / JavaScript / PHP</li>
                     <li><strong>Programmation :</strong> C# / Python</li>
                     <li><strong>Base de données :</strong> SQL / MySQL / SQL Serveur</li>
-                    <li><strong>Outils & Méthodologies :</strong> Git / GitHub / Méthodologie Agile</li>
+                    <li><strong>Framework :</strong> Symfony</li>
+                    <li><strong>Outils & Méthodologies :</strong> Git / GitHub / Cycles Agile et V / Mise en place de veilles</li>
                 </ul>
             </section>
 

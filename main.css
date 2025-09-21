@@ -302,8 +302,8 @@ footer a {
   }
 }
 
-/* === DOCUMENTATION SECTION === */
-.documentation {
+/* === RECTORAT SECTION === */
+.rectorat {
   text-align: center;
   margin-top: 3rem;
   animation: fadeInUp 1s ease forwards;
@@ -311,7 +311,7 @@ footer a {
   padding: 1rem;
 }
 
-.documentation h2 {
+.rectorat h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   border-bottom: 2px solid var(--accent-color);

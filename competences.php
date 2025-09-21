@@ -21,6 +21,8 @@
       <li><a href="#competence4">Travailler en mode projet</a></li>
       <li><a href="#competence5">Mettre à disposition un service informatique</a></li>
       <li><a href="#competence6">Organiser son développement professionnel</a></li>
+      <li><a href="#competence7">Stage de première année</a></li>
+      <li><a href="#competence8">Stage de deuxième année</a></li>
     </ul>
     </nav>
   </div>
@@ -89,6 +91,22 @@
         <a href="projet.php?id=3" class="download-card">
             <img src="./public/images/linkdIn_icon.png" alt="LinkdIn Icon" class="card-icon">
             <p>Compte LinkdIn</p>
+        </a>
+    </section>
+
+    <section id="competence7" class="competence7">
+        <h2>Stage de première année</h2>
+        <a href="projet.php?id=11" class="download-card">
+            <img src="./public/images/les_torrefacteurs_francais_logo.jpeg" alt="Torréfacteurs Icon" class="card-icon">
+            <p>Les Torréfacteurs Normands</p>
+        </a>
+    </section>
+
+    <section id="competence8" class="competence8">
+        <h2>Stage de deuxième année</h2>
+        <a href="projet.php?id=12" class="download-card">
+            <img src="./public/images/logo_campus_la_chataigneraie.png" alt="Chatos Icon" class="card-icon">
+            <p>Stage deuxième année</p>
         </a>
     </section>
   </main>

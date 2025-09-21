@@ -1,9 +1,9 @@
 <?php
 // Connexion à la base de données
-$host = '127.0.0.1';
-$dbname = 'portfolio';
-$user = 'root';
-$password = '';
+$host = 'localhost';
+$dbname = 'u581402098_portfolio';
+$user = 'u581402098_pidoux';
+$password = 'Chloelyloo789.';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
